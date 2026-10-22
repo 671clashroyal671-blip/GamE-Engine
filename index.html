@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111116">
+  <title>Little House AI</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Little House AI home"><span class="mark">lh</span><span><strong>Little House</strong><small>AI workspace</small></span></a>
+      <div class="header-actions"><span id="connection" class="connection">Checking local model…</span><button id="settingsButton" class="subtle">Settings</button></div>
+    </header>
+    <section class="conversation" aria-label="Conversation">
+      <div id="welcome" class="welcome"><span class="eyebrow">A FRESH START</span><h1>What are we<br><em>working on?</em></h1><p>A simple space to think, write, learn and build.</p></div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+    </section>
+    <section class="composer-area">
+      <div class="mode-row"><button id="searchButton" class="subtle">⌕ Web search</button><button id="clearButton" class="subtle">New chat</button></div>
+      <form id="composer" class="composer"><textarea id="prompt" rows="1" placeholder="Message Little House…" aria-label="Message Little House"></textarea><div class="composer-footer"><span>Enter to send · Shift + Enter for a new line</span><button id="sendButton" type="submit" aria-label="Send message">↑</button></div></form>
+      <p class="disclaimer">Local AI uses Ollama on your computer. AI responses can be wrong.</p>
+    </section>
+  </main>
+  <dialog id="settings">
+    <form method="dialog" class="dialog-head"><div><span class="eyebrow">PREFERENCES</span><h2>Settings</h2></div><button class="subtle" aria-label="Close settings">Close</button></form>
+    <label for="modelSelect">Installed local model</label><div class="model-row"><select id="modelSelect"><option value="">No model selected</option></select><button id="refreshModels" type="button" class="subtle">Refresh</button></div>
+    <p class="hint">Install Ollama, then download a model such as <code>ollama pull qwen2.5:3b</code>. No paid AI API is required.</p>
+    <label for="systemPrompt">Assistant instructions</label><textarea id="systemPrompt" rows="3">You are Little House, a helpful, honest assistant. Be clear, practical, and use Markdown when useful.</textarea>
+    <button id="saveSettings" class="primary" type="button">Save settings</button>
+  </dialog>
+</body>
+</html>
